@@ -1,27 +1,38 @@
-const ShowTask = ({tasklist, setTasklist, handleEdit, handleDelete}) => {
+export const ShowTask = ({taskList, setTasklist, task, setTask}) => {
+    
+    const handleEdit = (id) => {
+        const selectedTask  = taskList.find(todo => todo.id === id);
+        setTask(selectedTask);
+    )
+
+    const handleDelete = (id) => {
+        const updatedTasklist  = taskList.filter(todo => todo.id !== id);
+        setTasklist(updatedTasklist);
+    )
+        
     return (
         <section className='showTask'>
-            <p className="head">
-                <span>
+            <div className="head">
+                <div>
                     <span className="title">Todo</span>
                     <span className="count">{tasklist.length}</span>
-                </span>
-                <span className="clearAll" onClick={() => setTasklist([])}>Clear All</span>
-            </p>
+                </div>
+                <button className="clearAll" onClick={() => setTasklist([])}>Clear All</button>
+            </div>
             <ul>
-                {tasklist.map((task) => (
-                    <li key={task.id}>
+                {tasklist.map((todo) => (
+                    <li key={todo.id}>
                         <p>
-                            <span className="name">{task.name}</span>
-                            <span className="time">{task.time}</span>
+                            <span className="name">{todo.name}</span>
+                            <span className="time">{todo.time}</span>
                         </p>                
-                        <i className="bi bi-pencil-square" onClick={() => handleEdit(task.id)}></i>
-                        <i className="bi bi-trash" onClick={() => handleDelete(task.id)}></i>
+                        <i className="bi bi-pencil-square" onClick={() => handleEdit(todo.id)}></i>
+                        <i className="bi bi-trash" onClick={() => handleDelete(todo.id)}></i>
                     </li>
-                ))}
+                 ))  }
             </ul>
         </section>
-    );
+    )
 }
 
 export default ShowTask;
