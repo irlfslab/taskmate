@@ -1,10 +1,11 @@
-import logo from "../assets/logo.svg";
+import {useState} from "react"
+import Logo from "../assets/logo.svg"
 
 const Header = ({children, theme, setTheme}) => {
     return (
         <header>
             <span className="logo">
-                <img src={logo} alt="" />
+                <img src={Logo} alt="" />
                 <span>{children}</span>
             </span>
             <span className="themeSelector">
