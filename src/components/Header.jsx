@@ -5,9 +5,9 @@ export const Header = () => {
     const [theme, setTheme] = useState("dark");
     return (
         <header>
-            <span className="logo">
-                <img src={Logo} alt="" />
-                <span>{children}</span>
+            <span className="Logo">
+                <img src={Logo} alt="Taskapp Logo" />
+                <span>{Taskapp}</span>
             </span>
             <span className="themeSelector">
                 <span onClick={() => setTheme("light")} className={ theme === "light" ? "light activeTheme" : "light"}></span>
