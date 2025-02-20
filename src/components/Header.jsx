@@ -3,8 +3,10 @@ import {useEffect} from "react"
 import Logo from "../assets/logo.svg"
 
 export const Header = () => {
-    const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")||"light"));
+    const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")||"medium"));
     useEffect (() => {
+        localStorage.setItem("theme", JSON.stringify(theme));
+        document.documentElement.removeAttribute("class");
         document.documentElement.classList.add(theme);
     }, [theme]);
     
