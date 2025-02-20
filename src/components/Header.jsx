@@ -1,8 +1,13 @@
 import {useState} from "react"
+import {useEffect} from "react"
 import Logo from "../assets/logo.svg"
 
 export const Header = () => {
-    const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState("light");
+    useEffect (() => {
+        document.documentElement.classList.add(theme);
+    }, [theme]);
+    
     return (
         <header>
             <span className="Logo">
