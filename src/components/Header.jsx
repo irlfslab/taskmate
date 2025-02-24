@@ -3,7 +3,7 @@ import {useEffect} from "react"
 import Logo from "../assets/logo.svg"
 
 export const Header = () => {
-    const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")||"medium"));
+    const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme"))||"medium");
     useEffect (() => {
         localStorage.setItem("theme", JSON.stringify(theme));
         document.documentElement.removeAttribute("class");
@@ -14,7 +14,7 @@ export const Header = () => {
         <header>
             <span className="Logo">
                 <img src={Logo} alt="Taskapp Logo" />
-                <span>{Taskapp}</span>
+                <span>Taskapp</span>
             </span>
             <span className="themeSelector">
                 <span onClick={() => setTheme("light")} className={ theme === "light" ? "light activeTheme" : "light"}></span>
