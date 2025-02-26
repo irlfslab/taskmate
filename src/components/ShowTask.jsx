@@ -1,12 +1,12 @@
-export const ShowTask = ({taskList, setTasklist, task, setTask}) => {
+const ShowTask = ({tasklist, setTasklist, task, setTask}) => {
     
     const handleEdit = (id) => {
-        const selectedTask  = taskList.find(todo => todo.id === id);
+        const selectedTask  = tasklist.find(todo => todo.id === id);
         setTask(selectedTask);
     }
 
     const handleDelete = (id) => {
-        const updatedTasklist  = taskList.filter(todo => todo.id !== id);
+        const updatedTasklist  = tasklist.filter(todo => todo.id !== id);
         setTasklist(updatedTasklist);
     }
         
@@ -34,5 +34,4 @@ export const ShowTask = ({taskList, setTasklist, task, setTask}) => {
         </section>
     )
 }
-
 export default ShowTask;
