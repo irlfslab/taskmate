@@ -1,13 +1,14 @@
-export const AddTask = ({taskList, setTaskList, task, setTask}) => {
+const AddTask = ({tasklist, setTasklist, task, setTask}) => {
   const handleSubmit = (e) => {
       e.preventDefault();
 
       if (task.id) {
           const date = new Date();
-          const updateTask = taskList.map((todo) => (
+          const updatedTasklist= tasklist.map((todo) => (
               todo.id === task.id ? {id: task.id, name: e.target.task.value, time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`} : todo
           ));
           setTasklist(updatedTasklist);
+          setTask({});
       } else {
           const date = new Date();
           const newTask = {
@@ -15,7 +16,7 @@ export const AddTask = ({taskList, setTaskList, task, setTask}) => {
               name: e.target.task.value,
               time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`
           }
-          setTasklist([...taskList, newTask]);
+          setTasklist([...tasklist, newTask]);
           e.target.task.value ="";
       }
   }
