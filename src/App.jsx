@@ -53,11 +53,11 @@ function App() {
   return (
     <div className={"App " + theme}>
       <div className="container">
-        <Header setTheme={setTheme} theme={theme}>
-          Taskmate
+        <Header theme={theme} setTheme={setTheme} >
+          TaskApp
         </Header>
         <AddTask handleSubmit={handleSubmit} editid={editid} task={task} setTask={setTask}/>
-        <ShowTask tasklist={tasklist} setTasklist={setTasklist} handleEdit={handleEdit} handleDelete={handleDelete}/>
+        <ShowTask handleEdit={handleEdit} handleDelete={handleDelete} tasklist={tasklist} setTasklist={setTasklist}/>
       </div>
     </div>
   );
